@@ -71,12 +71,12 @@ runs:
       if: ${{ inputs.checkout == 'true' }}
       uses: actions/checkout@v4
 
-    # Cache TFLint plugins for faster runs
+
     - name: Cache TFLint Plugins
       uses: actions/cache@v4
       with:
         path: ~/.tflint.d/plugins
-        key: ${{ runner.os }}-tflint-${{ hashFiles('**/.tflint.hcl') }}-${{ inputs.aws_plugin_version }}
+        key: ${{ runner.os }}-tflint-v1-${{ inputs.aws_plugin_version }}
         restore-keys: |
           ${{ runner.os }}-tflint-
     
