@@ -11,7 +11,7 @@ A reusable GitHub Actions composite action for running TFLint security and linti
 - ✅ **Multiple Output Formats**: Compact, JSON, SARIF, and more
 - ✅ **AWS Best Practices**: Built-in AWS ruleset for cloud security
 
-> **Note**: For tag enforcement, please use the [Checkov workflow](https://github.com/UKHomeOffice/core-cloud-workflow-checkov-sast-scan) which is the standard tool for tag compliance checking.
+> **Note**: For tag enforcement, please use the [Checkov workflow](https://github.com/Home-Office-Digital/core-cloud-workflow-checkov-sast-scan) which is the standard tool for tag compliance checking.
 
 ## Checkout behavior
 
@@ -29,7 +29,7 @@ Use the reusable TFLint workflow. This is the preferred approach for most reposi
 ```yaml
 jobs:
   tflint-scan:
-    uses: UKHomeOffice/core-cloud-workflow-tflint-scan/.github/workflows/tflint.yaml@v0.1.0
+    uses: Home-Office-Digital/core-cloud-workflow-tflint-scan/.github/workflows/tflint.yaml@v0.1.0
 ```
 
 Optionally add inputs:
@@ -37,7 +37,7 @@ Optionally add inputs:
 ```yaml
 jobs:
   tflint-scan:
-    uses: UKHomeOffice/core-cloud-workflow-tflint-scan/.github/workflows/tflint.yaml@v0.1.0
+    uses: Home-Office-Digital/core-cloud-workflow-tflint-scan/.github/workflows/tflint.yaml@v0.1.0
     with:
       working_directory: .
       tflint_recursive: true
@@ -59,7 +59,7 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Run TFLint
-        uses: UKHomeOffice/core-cloud-workflow-tflint-scan@v0.1.0
+        uses: Home-Office-Digital/core-cloud-workflow-tflint-scan@v0.1.0
         with:
           tflint_recursive: true
 ```
@@ -70,7 +70,7 @@ steps:
   - uses: actions/checkout@v4
 
   - name: Run TFLint on Terragrunt
-    uses: UKHomeOffice/core-cloud-workflow-tflint-scan@v0.1.0
+    uses: Home-Office-Digital/core-cloud-workflow-tflint-scan@v0.1.0
     with:
       working_directory: '.'
       tflint_recursive: true
@@ -79,7 +79,7 @@ steps:
 ### With Custom Configuration
 ```yaml
 - name: Run TFLint with Custom Config
-  uses: UKHomeOffice/core-cloud-workflow-tflint-scan@v1
+  uses: Home-Office-Digital/core-cloud-workflow-tflint-scan@v1
   with:
     custom_config_path: '.tflint.hcl'
     tflint_recursive: true
@@ -88,7 +88,7 @@ steps:
 ### Specific Directory
 ```yaml
 - name: Scan Specific Module
-  uses: UKHomeOffice/core-cloud-workflow-tflint-scan@v1
+  uses: Home-Office-Digital/core-cloud-workflow-tflint-scan@v1
   with:
     working_directory: 'modules/aws/vpc'
     tflint_recursive: false
@@ -105,7 +105,7 @@ steps:
   - uses: actions/checkout@v4
 
   - name: TFLint Scan
-    uses: UKHomeOffice/core-cloud-workflow-tflint-scan@v0.1.0
+    uses: Home-Office-Digital/core-cloud-workflow-tflint-scan@v0.1.0
     with:
       checkout: false
 ```
@@ -171,7 +171,7 @@ rule "terraform_naming_convention" {
 
 Then reference it:
 ```yaml
-- uses: UKHomeOffice/core-cloud-workflow-tflint-scan@v1
+- uses: Home-Office-Digital/core-cloud-workflow-tflint-scan@v1
   with:
     custom_config_path: '.tflint.hcl'
 ```
@@ -193,7 +193,7 @@ If you're currently using `terraform-linters/setup-tflint` directly:
 **After:**
 ```yaml
 - uses: actions/checkout@v4
-- uses: UKHomeOffice/core-cloud-workflow-tflint-scan@v1
+- uses: Home-Office-Digital/core-cloud-workflow-tflint-scan@v1
   with:
     tflint_recursive: true
 ```
@@ -209,7 +209,7 @@ No special configuration needed - the workflow auto-detects and handles both.
 
 ## Tag Enforcement
 
-**Important**: Tag enforcement should be handled by the [Checkov workflow](https://github.com/UKHomeOffice/core-cloud-workflow-checkov-sast-scan), which is the platform's standard tool for tag compliance checking.
+**Important**: Tag enforcement should be handled by the [Checkov workflow](https://github.com/Home-Office-Digital/core-cloud-workflow-checkov-sast-scan), which is the platform's standard tool for tag compliance checking.
 
 TFLint focuses on:
 - Terraform syntax and best practices
@@ -259,8 +259,8 @@ For issues or questions:
 
 ## Related Workflows
 
-- [Checkov SAST Scan](https://github.com/UKHomeOffice/core-cloud-workflow-checkov-sast-scan) - For tag enforcement and policy-as-code
-- [Sonarqube Scan](https://github.com/UKHomeOffice/core-cloud-workflow-sonarqube-scan) - For code quality analysis
+- [Checkov SAST Scan](https://github.com/Home-Office-Digital/core-cloud-workflow-checkov-sast-scan) - For tag enforcement and policy-as-code
+- [Sonarqube Scan](https://github.com/Home-Office-Digital/core-cloud-workflow-sonarqube-scan) - For code quality analysis
 
 
 ---
