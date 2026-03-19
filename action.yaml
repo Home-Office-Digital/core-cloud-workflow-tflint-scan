@@ -228,7 +228,7 @@ runs:
           echo '```' >> $GITHUB_STEP_SUMMARY
 
           if [ -n "${TFLINT_OUTPUT_FILE:-}" ] && [ -f "${{ inputs.working_directory }}/$TFLINT_OUTPUT_FILE" ]; then
-             # If we have a huge output, we can swap cat for tail command:
+            # If we have a huge output, we can swap cat for tail command:
             # tail -n 200 "${{ inputs.working_directory }}/$TFLINT_OUTPUT_FILE" >> $GITHUB_STEP_SUMMARY
             # echo "...(truncated)" >> $GITHUB_STEP_SUMMARY
             cat "${{ inputs.working_directory }}/$TFLINT_OUTPUT_FILE" >> $GITHUB_STEP_SUMMARY
